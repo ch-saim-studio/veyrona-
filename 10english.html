@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>notes </title>
+</head>
+<style>
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  body {
+    padding: 0%;
+    margin: 0%;
+    background-color: rgb(238, 241, 241);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 65px;
+    background: linear-gradient(to right, #09b203, #3ae73d);
+   position: relative;
+  }
+
+  .left {
+    color: rgb(3, 93, 21);
+    font-size: 1.5rem;
+    color: white;
+    font-weight: bold;
+  }
+
+  nav ul {
+    display: flex;
+    justify-content: center;
+  position: sticky;
+  }
+
+  nav ul li {
+    list-style: none;
+    margin: 0 23px;
+
+  }
+
+  nav ul li a {
+    text-decoration: none;
+    color: white;
+  }
+
+  nav ul li a:hover {
+    color: rgb(0, 0, 0);
+    font-size: 1rem;
+  }
+
+  .img {
+    width: 50px;
+    height: auto;
+    border-radius: 16px;
+  }
+
+  .photo img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .notes {
+    margin: 0%;
+    padding: 1.5%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+
+
+  }
+
+  .text {
+    background-color: rgb(255, 255, 255);
+  }
+
+  .right li {
+    font-size: 1.2rem;
+
+  }
+
+
+
+
+  .section {
+    display: flex;
+    background-color: rgb(238, 241, 241);
+  }
+
+  .secright {
+    padding: 10px 3px;
+    margin: 30px 10px;
+    background-color: rgb(255, 255, 255);
+    width: 30%;
+    height: 130px;
+  }
+
+  .secleft {
+    padding: 10px 40px;
+    margin: 30px 60px;
+    background-color: rgb(255, 255, 255);
+    width: 70%;
+
+    height: 400px;
+
+
+  }
+
+  .secleft p {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.1rem;
+    font-weight: 300px;
+    padding: 32px 0;
+
+
+  }
+
+  .search-box {
+    margin-bottom: 20px;
+    display: flex;
+  }
+
+  .search-box input {
+    flex: 1;
+    padding: 10px;
+    border: 2px solid #c3c0c0;
+    border-radius: 6px 0 0 6px;
+  }
+
+  .search-box button {
+    padding: 10px;
+    border: none;
+
+    color: white;
+    border-radius: 0 6px 6px 0;
+    cursor: pointer;
+  }
+
+
+  .update-btn {
+    display: inline-block;
+    background: rgb(26, 165, 13);
+    color: white;
+    padding: 12px 20px;
+    font-weight: bold;
+    border-radius: 6px;
+    text-decoration: none;
+    margin-bottom: 25px;
+    width: 95%;
+
+  }
+
+  .strong {
+    font-size: 1.3rem;
+    padding: 13px 35px;
+
+  }
+
+  .flex {
+    margin: 33px 28px;
+    padding: 2px;
+    border: 1px solid rgb(210, 207, 207);
+    border-radius: 6px;
+    height: 40px;
+    width: 250px;
+  }
+
+  .photo {
+    background-color: white;
+    height: 350px;
+    padding: 0px 40px;
+  }
+
+  h2 {
+    font-size: 24px;
+    margin: 40px 0 20px;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  .resources {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+  }
+
+  .btn {
+    min-width: 130px;
+    padding: 12px 18px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+  }
+
+  .btn-green {
+    background: linear-gradient(to right, #00c853, #64dd17);
+    color: white;
+  }
+
+  .btn-outline {
+    background: white;
+    color: #111;
+    border: 2px solid #ccc;
+  }
+
+  .btn-outline:hover {
+    border-color: #888;
+  }
+
+  .btn-green:hover {
+    filter: brightness(1.1);
+  }
+
+  .hamburger {
+    display: none;
+    font-size: 28px;
+    color: white;
+    cursor: pointer;
+  }
+
+  .menu {
+    display: flex;
+  }
+
+  @media (max-width: 768px) {
+    .hamburger {
+      display:block ;
+    }
+
+    .menu {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    background-color: rgb(6, 141, 26);
+      padding: 10px 0;
+    }
+
+    .menu.active {
+      display: flex;
+    }
+
+    .menu ul {
+      flex-direction: column;
+      gap: 10px;
+      width: 100%;
+      padding: 0;
+    }
+
+    .menu ul li {
+      margin: 0;
+      text-align: center;
+      width: 100%;
+    }
+
+    nav ul li a {
+      display: block;
+      padding: 10px 0;
+    }
+  }
+
+
+  @media (max-width: 600px) {
+    .btn {
+      min-width: 70%;
+    }
+
+  }
+
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .section {
+      flex-direction: column;
+    }
+
+    .secleft,
+    .secright {
+      width: 90%;
+      margin: 20px auto;
+      padding: 20px;
+      height: auto;
+    }
+
+    .photo {
+      height: auto;
+      text-align: center;
+    }
+
+    .photo img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .notes {
+      font-size: 1.3rem;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .resources {
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn {
+      width: 90%;
+      font-size: 16px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    nav {
+      flex-direction: column;
+      height: auto;
+      padding: 10px 0;
+    }
+
+    .right ul {
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 0;
+    }
+
+    .right li {
+      font-size: 1rem;
+    }
+
+    .img {
+      width: 40px;
+      margin-bottom: 10px;
+    }
+
+    .left {
+      font-size: 1.2rem;
+      text-align: center;
+    }
+
+    .search-box {
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .search-box input,
+    .search-box button {
+      width: 100%;
+      border-radius: 6px;
+    }
+
+    .update-btn {
+      width: 100%;
+      padding: 12px;
+    }
+
+    .flex {
+      width: 100%;
+    }
+  }
+
+  .contanier {
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(238, 241, 241);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+  }
+
+  form {
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    padding: 2vw 4vw;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 10px;
+  }
+
+  form h3 {
+    color: #4b4b4b;
+    font-weight: 800;
+    margin-bottom: 20px;
+  }
+
+  form input,
+  form textarea {
+    border: 0;
+    margin: 10px 0;
+    padding: 20px;
+    outline: none;
+    background: #f5f5f5;
+    font-size: 16px;
+  }
+
+  form button {
+    padding: 15px;
+    background: #0dc119;
+    color: #fff;
+    font-size: 18px;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    width: 150px;
+    margin: 20px auto 0;
+    border-radius: 20px;
+  }
+  .comment-section {
+      background: #fff;
+      border: 1px solid #ddd;
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+      border-radius: 10px;
+  
+    }
+    .comment {
+      border-top: 1px solid #eee;
+      padding-top: 15px;
+      margin-top: 15px;
+    }
+    .comment:first-child {
+      border-top: none;
+      padding-top: 0;
+      margin-top: 0;
+    }
+    .comment strong {
+      font-size: 16px;
+    }
+    .comment small {
+      color: #555;
+      font-weight: 500;
+      margin-left: 10px;
+    }
+    .reply {
+      color: #00a651;
+      font-weight: bold;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+    .author-reply {
+      background: #f1f5f4;
+      padding: 10px;
+      border-left: 4px solid #008060;
+      margin-top: 10px;
+      border-radius: 5px;
+    }
+    .author-badge {
+      display: inline-block;
+      background: #003d33;
+      color: white;
+      font-size: 13px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-right: 8px;
+    }
+    .comment-form {
+      margin-top: 30px;
+    }
+    .comment-form input,
+    .comment-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+    .comment-form button {
+      background: #003d33;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .footer {
+  background-color: #000201;
+  color: white;
+  padding: 40px 20px 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: auto;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ccc;
+}
+
+.footer h3,
+.footer h4 {
+  margin-bottom: 15px;
+  color: #ffffff;
+}
+
+.footer p,
+.footer li {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.footer-left,
+.footer-center,
+.footer-right {
+  flex: 1 1 300px;
+  margin: 10px 20px;
+}
+
+.footer-center ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-center ul li {
+  margin-bottom: 10px;
+}
+
+.footer-center ul li a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.footer-center ul li a:hover {
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 13px;
+  color: #ddd;
+}
+
+iframe {
+      width: 100vw;
+      height: 100vh;
+      border: none;
+      display: block;
+    }
+
+.iframe{
+    width: 100vw;
+      height: 100vh;
+      border: none;
+}
+@media (max-width: 768px) {
+      .pdf-viewer {
+        height: 100vh;
+      }
+    }
+</style>
+</head>
+
+<nav>
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpdbbtZt9NjM1b-hqe0pYIx991vn9v9KDl4g&s" class="img" />
+  <div class="left">EduSpark Notes</div>
+
+  <div class="hamburger" onclick="toggleMenu()">☰</div>
+
+  <div class="menu">
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#">Notes</a></li>
+      <li><a href="#">Online Notes</a></li>
+      <li><a href="#">Text Book</a></li>
+      <li><a href="#">Test Paper</a></li>
+      <li><a href="#">Guess Paper</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+<div class="text">
+  <h1 class="notes">
+    Class 10 English Notes, All Unit PDF
+
+  </h1>
+  <section class="section" id="home">
+    <div class="secleft">
+      <p> Hi, We want to tell you that you can find all the class 10 notes on our website. These notes are great for learning and as well as for scoring maximum marks. They have been solved in a proper way. We are uploading these notes for those who want full marks and a good learning as well. Skim through them it will be beneficial for you! These notes contain questions revolve around the important topics of the book and they will not feel out of the context. Having read these questions is a great deal because these are relevant to the course, easy to understand and focus on important topics the most. If you just go through these questions once, believe me, you will love these.
+      </p>
+      
+    </div>
+    <div class=" secright">
+      <strong class="strong">Search Here</strong>
+      <div>
+        <input type="search" placeholder="Type Your Search" class="flex">
+      </div>
+      <div class="photo">
+        <h3>Our Andriod App</h3>
+        <img src="https://www.freeilm.com/wp-content/uploads/2023/09/freeilm.com-android-app-banner-new.png" alt="">
+      </div>
+    </div>
+  </section>
+  <iframe src="https://ikddata.ilmkidunya.com/images/note/10th-Eng-Full-notes%20(1).pdf" width="100%" height="600px" class="iframe"></iframe>
+  <iframe src="https://ikddata.ilmkidunya.com/images/note/10th-Eng-Full-notes%20(2).pdf" width="100%" height="600px" class="iframe"></iframe>
+  <iframe src="https://ikddata.ilmkidunya.com/images/note/10th-Eng-Full-notes%20(3).pdf" width="100%" height="600px" class="iframe"></iframe>
+  <iframe src="https://ikddata.ilmkidunya.com/images/note/10th-Eng-Full-notes%20(4).pdf" width="100%" height="600px" class="iframe"></iframe>
+  <iframe src="https://ikddata.ilmkidunya.com/images/note/10th-Eng-Full-notes%20(5)%20(1).pdf" width="100%" height="600px" class="iframe"></iframe>
+  <iframe src="https://ikddata.ilmkidunya.com/images/note/10th-Eng-Full-notes%20(6).pdf" width="100%" height="600px" class="iframe"></iframe>
+  <iframe src="https://ikddata.ilmkidunya.com/images/note/10th-Eng-Full-notes%20(7).pdf" width="100%" height="600px" class="iframe"></iframe>
+  <iframe src="https://ikddata.ilmkidunya.com/images/note/10th-Eng-Full-notes%20(8)%20(1).pdf" width="100%" height="600px" class="iframe"></iframe>
+  <iframe src="https://ikddata.ilmkidunya.com/images/note/10th-Eng-Full-notes%20(9.pdf" width="100%" height="600px" class="iframe"></iframe>
+  <iframe src="https://ikddata.ilmkidunya.com/images/note/10th-Eng-Full-notes%20(10).pdf" width="100%" height="600px" class="iframe"></iframe>
+  <iframe src="https://ikddata.ilmkidunya.com/images/note/10th-Eng-Full-notes%20(11).pdf" width="100%" height="600px" class="iframe"></iframe>
+  <iframe src="https://ikddata.ilmkidunya.com/images/note/10th-Eng-Full-notes%20(12).pdf" width="100%" height="600px" class="iframe"></iframe>
+  <iframe src="https://ikddata.ilmkidunya.com/images/note/10th-Eng-Full-notes%20(13).pdf" width="100%" height="600px" class="iframe"></iframe>
+
+  <div class="comment-section">
+    <h2>This Post Has 105 Comments</h2>
+  
+    <div class="comment">
+      <strong>Arshad Chandio</strong> <small>October 29, 2024
+      </small> <span class="reply">REPLY</span>
+      <p>Well done<br>Bring 9th class English notes</p>
+      <div class="author-reply">
+        <span class="author-badge">Author</span> October 29, 2024 <span class="reply">REPLY</span>
+        <p>Insha Allah</p>
+      </div>
+    </div>
+  
+    <div class="comment">
+      <strong>Arslan</strong> <small>June 16, 2024</small> <span class="reply">REPLY</span>
+      <p>sir plz send me these notes in pdf form..</p>
+    </div>
+  
+    <div class="comment">
+      <strong>Minahil</strong> <small>October 22, 2024</small> <span class="reply">REPLY</span>
+      <p>sir ya app mera or sub students ka lia help full ha mugha is sa bhoot faida hota ha teacher ki dant sa bach gati ho hahahhahhahh</p>
+    </div>
+  
+    <div class="comment">
+      <strong>Abdullah</strong> <small>November 8, 2022</small> <span class="reply">REPLY</span>
+      <p>Asslam o Alaikum please urdu ma biology, chemistry, or physics ka notes send kara please</p>
+    </div>
+  
+    <div class="comment">
+      <strong>Momo</strong> <small>December 22, 2024</small> <span class="reply">REPLY</span>
+      <p>Good sir may allah bless you with his never ending blessing</p>
+    </div>
+    <div class="comment">
+    <strong>Iqra Zahid</strong> <small>March 5, 2025</small> <span class="reply">REPLY</span>
+    <p>Thank you so much for these notes. These are really helpful!</p>
+  </div>
+  
+  <div class="comment">
+    <strong>Rana Faizan</strong> <small>April 11, 2025</small> <span class="reply">REPLY</span>
+    <p>Bro can you please upload 10th class computer notes as well?</p>
+    <div class="author-reply">
+      <span class="author-badge">Author</span> August 12, 2023 <span class="reply">REPLY</span>
+      <p>Yes, we are working on them. Will be available soon Insha Allah.</p>
+    </div>
+  </div>
+  
+  <div class="comment">
+    <strong>Laiba Khan</strong> <small>October 2, 2023</small> <span class="reply">REPLY</span>
+    <p>Sir, can you also provide notes for arts group? Especially for education and civics?</p>
+  </div>
+  
+  <div class="comment">
+    <strong>Usman Tariq</strong> <small>November 19, 2023</small> <span class="reply">REPLY</span>
+    <p>These notes saved me before exams! JazakAllah for your great effort.</p>
+  </div>
+  
+  <div class="comment">
+    <strong>Mehwish Fatima</strong> <small>January 1, 2024</small> <span class="reply">REPLY</span>
+    <p>Excellent work! Can you please upload guess papers too?</p>
+  </div>
+  <div class="comment">
+    <strong>Ali Haider</strong> <small>April 1, 2024</small> <span class="reply">REPLY</span>
+    <p>I love how clean and organized everything is. Keep it up!</p>
+  </div>
+  
+  <div class="comment">
+    <strong>Rubina Tariq</strong> <small>January 8, 2024</small> <span class="reply">REPLY</span>
+    <p>Do you have grammar exercises for English as well?</p>
+  </div>
+
+  <div class="comment">
+    <strong>Zoya Fatima</strong> <small>February 6, 2024</small> <span class="reply">REPLY</span>
+    <p>Can you make a PDF version of all chapters combined?</p>
+  </div>
+  
+  <div class="comment">
+    <strong>Rehan Arif</strong> <small>November 8, 2023</small> <span class="reply">REPLY</span>
+    <p>This site is amazing! Notes, MCQs, and long questions — all in one place!</p>
+  </div>
+  
+  <div class="comment">
+    <strong>Mahnoor Shahid</strong> <small>March 19, 2024</small> <span class="reply">REPLY</span>
+    <p>Please upload Sindh board version also. Many students here need that.</p>
+  </div>
+
+  
+<div class="comment">
+  <strong>Waleed Ansari</strong> <small>December 19, 2023</small> <span class="reply">REPLY</span>
+  <p>Thank you! I got full marks in bio short questions using this site!</p>
+  <div class="author-reply">
+    <span class="author-badge"></span>
+   
+      </a>Author</span> December 20, 2023 <span class="reply">REPLY</span>
+    <p>Masha Allah! Congratulations and best of luck for future.</p>
+  </div>
+</div>
+<div class="comment">
+  <strong>Umar Dar</strong> <small>March 10, 2024</small> <span class="reply">REPLY</span>
+  <p>Can you include model papers for 2024 exams?</p>
+  <div class="author-reply">
+    <span class="author-badge">Author</span> March 11, 2024 <span class="reply">REPLY</span>
+    <p>Yes! Model papers are coming very soon Insha Allah.</p>
+  </div>
+</div>
+
+<div class="comment">
+  <strong>Neha Gul</strong> <small>April 4, 2024</small> <span class="reply">REPLY</span>
+  <p>Your notes helped me a lot. Please don’t stop updating!</p>
+</div>
+
+<div class="comment">
+  <strong>Imran Shah</strong> <small>January 16, 2024</small> <span class="reply">REPLY</span>
+  <p>Are there any notes for 9th class computer in Urdu?</p>
+</div>
+<div class="comment">
+  <strong>Nimra Shahid</strong> <small>January 4, 2024</small> <span class="reply">REPLY</span>
+  <p>This is the best site for 10th class notes. Thank you so much!</p>
+</div>
+
+<div class="comment">
+  <strong>Hassan Ali</strong> <small>November 30, 2023</small> <span class="reply">REPLY</span>
+  <p>Great work sir. Kindly make an app too if possible!</p>
+</div>
+
+<div class="comment">
+  <strong>Rimsha Younas</strong> <small>December 5, 2023</small> <span class="reply">REPLY</span>
+  <p>I shared this website with all my classmates. You’re doing amazing work!</p>
+</div>
+<div class="comment">
+  <strong>Jaweria Iqbal</strong> <small>February 25, 2024</small> <span class="reply">REPLY</span>
+  <p>Superb notes! Please add some guess papers for better prep.</p>
+</div>
+<div class="comment">
+  <strong>Maria Khan</strong> <small>March 2, 2024</small> <span class="reply">REPLY</span>
+  <p>These notes are a blessing! Kindly add more MCQs for physics.</p>
+</div>
+
+<div class="comment">
+  <strong>Faizan Ahmed</strong> <small>April 7, 2024</small> <span class="reply">REPLY</span>
+  <p>Can you create separate sections for each chapter? That will help a lot.</p>
+</div>
+
+<div class="comment">
+  <strong>Ayesha Malik</strong> <small>March 28, 2024</small> <span class="reply">REPLY</span>
+  <p>Thanks sir! Kindly upload solved past papers too.</p>
+</div>
+
+<div class="comment">
+  <strong>Muhammad Haseeb</strong> <small>February 18, 2024</small> <span class="reply">REPLY</span>
+  <p>Very nice layout. Please consider adding a download all option.</p>
+</div>
+  <div class="contanier">
+    <form onsubmit="sendEmail(); reset(); return false;">
+        <h3>Type Your Reply</h3>
+        <input type="text" id="Name" placeholder="Your Name(Required)" required>
+        <input type="email" id="email" placeholder="Your Email Id(Required)" required>
+        <input type="text" id="Phone" placeholder="Your Phone no.(Required)" required>
+        <textarea id="message" rows="4" placeholder="How can we help you?"></textarea>
+        <button type="submit">Sumbit</button>
+    </form>
+</div>
+
+
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-left">
+      <h3>EduSpark</h3>
+      <p>Free quality notes, textbooks, guess papers, and test papers for Class 9 and 10 students.</p>
+    </div>
+
+    <div class="footer-center">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#">Notes</a></li>
+        <li><a href="#">Online Tests</a></li>
+        <li><a href="#">Text Books</a></li>
+        <li><a href="#">Guess Papers</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-right">
+      <h4>Contact Us</h4>
+      <p>Email: shaheenmodelschool795@gmail.com</p>
+      <p>Phone: 0306-7853706</p>
+      <p>Location: Hasilpur, Punjab</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 EduSpark. All rights reserved.</p>
+  </div>
+</footer>
+
+
+
+  </body>
+  <script>
+    function toggleMenu() {
+      const menu = document.querySelector('.menu');
+      menu.classList.toggle('active');
+    }
+
+    // Auto close when clicking a link (on mobile)
+    document.addEventListener('DOMContentLoaded', () => {
+      const menuLinks = document.querySelectorAll('.menu a');
+      const menu = document.querySelector('.menu');
+      menuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          menu.classList.remove('active');
+        });
+      });
+    });
+  </script>
+  <script src="https://smtpjs.com/v3/smtp.js">
+  </script>
+  <script>
+    function sendEmail() {
+      Email.send({
+        Host: "smtp.gmail.com",
+        Username: "shaheenmodelschool795@gmail.com",
+        Password: "saim/4321shaheen/795",
+        To: 'sa6985935@gmail.com',
+        From: document.getElementById("email").value,
+        Subject: "New Contact Form Enquiry",
+        Body: "And this is the body"
+      }).then(
+        message => alert(message)
+      );
+
+    }
+  </script>
+
+
+</html>
