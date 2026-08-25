@@ -49,7 +49,7 @@ I started with web development and Python, and I'm currently working toward adva
 
 A professional web development portfolio showcasing modern websites and services.
 
-🔗 **Live Demo:** https://saimstudioweb.lovable.app
+🔗 **Live Demo:** https://saim-web-studio.lovable.app
 
 ### 📚 EduSpark Notes
 
